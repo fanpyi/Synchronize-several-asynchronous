@@ -49,7 +49,7 @@
     });
 }
 +(void)synchronizeAsynchronousUsingBarrierLoadImages:(NSArray<NSString *> *)urls completedAllOperations:(CompletedAllOperations)completed{
-    dispatch_queue_t queue = dispatch_queue_create("com.synchronize.loadimage", 0);
+    dispatch_queue_t queue = dispatch_queue_create("com.synchronize.loadimage", DISPATCH_QUEUE_CONCURRENT);
     NSMutableArray *images = @[].mutableCopy;
     for (NSString *url in urls) {
         dispatch_async(queue, ^{
